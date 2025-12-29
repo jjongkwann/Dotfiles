@@ -1,0 +1,10 @@
+# ─── Arch Linux Specific Configuration ───────────────────────────
+
+# ─── Aliases ─────────────────────────────────────────────────────
+alias cbonsai='cbonsai -l -i -w 1'
+
+# ─── Pokemon Startup ─────────────────────────────────────────────
+pokemon-colorscripts --no-title -s -r
+
+# ─── Oh-My-Posh Theme ────────────────────────────────────────────
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/viet.omp.json)"
