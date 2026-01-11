@@ -70,8 +70,8 @@ alias vim='nvim'
 alias vi='nvim'
 alias lzg='lazygit'
 alias lzd='lazydocker'
-alias sz='source ~/.zshrc'
-alias vz='vim ~/.zshrc'
+alias sz='source $ZDOTDIR/.zshrc'
+alias vz='vim $ZDOTDIR/.zshrc'
 
 # ─── Tools Init ──────────────────────────────────────────────────
 export BAT_THEME="base16"
@@ -82,11 +82,11 @@ eval "$(zoxide init zsh)"
 # ─── OS Specific ─────────────────────────────────────────────────
 case "$OSTYPE" in
     darwin*)
-        [[ -f ~/.zshrc.mac ]] && source ~/.zshrc.mac
+        [[ -f $ZDOTDIR/.zshrc.mac ]] && source $ZDOTDIR/.zshrc.mac
         ;;
     linux*)
         if [ -f /etc/arch-release ]; then
-            [[ -f ~/.zshrc.arch ]] && source ~/.zshrc.arch
+            [[ -f $ZDOTDIR/.zshrc.arch ]] && source $ZDOTDIR/.zshrc.arch
         fi
         ;;
 esac

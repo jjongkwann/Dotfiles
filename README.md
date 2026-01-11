@@ -89,3 +89,6 @@ stow -t ~ zsh tmux nvim ghostty hypr waybar rofi cava swaync wlogout viegphunt f
 - Each directory is an independent stow package
 - Symlinks are created relative to `$HOME`
 - Use `stow -t ~ -D <package>` to unlink
+- All configs follow XDG Base Directory spec (`~/.config/`)
+- `zsh` uses `ZDOTDIR` via `~/.zshenv`
+- `tmux` uses `~/.config/tmux/tmux.conf` (requires tmux 3.1+)
