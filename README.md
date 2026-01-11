@@ -37,7 +37,7 @@ This repository includes configuration for:
 
 ## 🚀 Installation
 
-### Prerequisites
+### Prerequisitesl
 - [GNU Stow](https://www.gnu.org/software/stow/)
 - Git
 
