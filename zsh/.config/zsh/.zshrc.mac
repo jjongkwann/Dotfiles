@@ -1,8 +1,5 @@
 # ─── macOS Specific Configuration ────────────────────────────────
 
-# ─── Kiro CLI Pre Block ──────────────────────────────────────────
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
-
 # ─── Pure Prompt ─────────────────────────────────────────────────
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 autoload -U promptinit; promptinit
@@ -16,26 +13,9 @@ prompt pure
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ─── PATH ────────────────────────────────────────────────────────
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export PATH="$HOME/development/flutter/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
-export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-export PATH="$HOME/.spicetify:$PATH"
-
-# ─── Build Flags ─────────────────────────────────────────────────
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
-
-# ─── Docker Completions ──────────────────────────────────────────
-fpath=($HOME/.docker/completions $fpath)
 
 # ─── Tmux Auto Session ───────────────────────────────────────────
 tmux_auto_session() {
@@ -49,14 +29,10 @@ tmux_auto_session() {
 }
 alias tmuxp='tmux_auto_session'
 
-# ─── iTerm Tab Title ─────────────────────────────────────────────
+# ─── Terminal Tab Title ──────────────────────────────────────────
 DISABLE_AUTO_TITLE="true"
 precmd() {
   local name="${PWD##*/}"
   print -Pn "\e]1;$name\a"
   print -Pn "\e]2;$name\a"
 }
-
-# ─── Kiro CLI Post Block ─────────────────────────────────────────
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
