@@ -3,14 +3,17 @@
 # ─── Kiro CLI Pre Block ──────────────────────────────────────────
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 
-# ─── Powerlevel10k Instant Prompt ────────────────────────────────
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# ─── Pure Prompt ─────────────────────────────────────────────────
+fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
 
-# ─── Powerlevel10k Theme ─────────────────────────────────────────
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ─── Powerlevel10k (disabled) ────────────────────────────────────
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ─── PATH ────────────────────────────────────────────────────────
 export PATH="/opt/homebrew/bin:$PATH"
