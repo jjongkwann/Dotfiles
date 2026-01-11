@@ -1,0 +1,3 @@
+# zsh completion cache
+.zcompdump
+.zcompdump-*
