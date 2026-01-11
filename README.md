@@ -6,7 +6,7 @@ This repository includes configuration for:
 - **Window Managers**: `Hyprland`
 - **Terminals**: `ghostty`
 - **Shells**: `zsh`
-- **Prompt**: `oh-my-posh`
+- **Prompt**: `pure`
 - **Editors**: `neovim`
 - **Multiplexer**: `tmux`
 - **Status Bar**: `waybar`
@@ -19,22 +19,73 @@ This repository includes configuration for:
 
 ```plaintext
 .
-├── .config/
-│   ├── cava/
-│   ├── colors/         # Color schemes
-│   ├── fontconfig/
-│   ├── ghostty/
-│   ├── hypr/
-│   ├── nvim/
-│   ├── ohmyposh/
-│   ├── rofi/
-│   ├── swaync/
-│   ├── viegphunt/      # Personal scripts
-│   ├── waybar/
-│   └── wlogout/
-├── .stow-local-ignore  # Stow ignore list
-├── .tmux.conf
-├── .zshrc
-├── LICENSE             # License
-└── README.md           # This file
+├── cava/           # Audio visualizer
+├── colors/         # Color schemes
+├── fontconfig/     # Font configuration
+├── ghostty/        # Terminal emulator
+├── hypr/           # Hyprland WM
+├── nvim/           # Neovim editor
+├── ohmyposh/       # Oh My Posh prompt (backup)
+├── rofi/           # Application launcher
+├── swaync/         # Notification center
+├── tmux/           # Terminal multiplexer
+├── viegphunt/      # Personal scripts
+├── waybar/         # Status bar
+├── wlogout/        # Logout menu
+└── zsh/            # Zsh shell
 ```
+
+## 🚀 Installation
+
+### Prerequisites
+- [GNU Stow](https://www.gnu.org/software/stow/)
+- Git
+
+```bash
+# macOS
+brew install stow
+
+# Arch Linux
+sudo pacman -S stow
+```
+
+### Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Dotfiles.git ~/Dotfiles
+cd ~/Dotfiles
+```
+
+### Install with Stow
+
+```bash
+# Install specific packages
+stow -t ~ zsh tmux nvim ghostty
+
+# Install all packages
+stow -t ~ */
+
+# Remove a package
+stow -t ~ -D nvim
+
+# Simulate (dry run)
+stow -t ~ -n -v nvim
+```
+
+### macOS Recommended
+
+```bash
+stow -t ~ zsh tmux nvim ghostty ohmyposh fontconfig colors
+```
+
+### Arch Linux Recommended
+
+```bash
+stow -t ~ zsh tmux nvim ghostty hypr waybar rofi cava swaync wlogout viegphunt fontconfig colors
+```
+
+## 📝 Notes
+
+- Each directory is an independent stow package
+- Symlinks are created relative to `$HOME`
+- Use `stow -t ~ -D <package>` to unlink
