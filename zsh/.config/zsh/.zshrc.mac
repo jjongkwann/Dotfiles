@@ -18,16 +18,14 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
 # ─── Tmux Auto Session ───────────────────────────────────────────
-tmux_auto_session() {
+tmuxp() {
   if [[ -n $TMUX ]]; then
     command tmux "$@"
   else
-    local project
-    project=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")
-    command tmux new-session -A -s "$project" "$@"
+    local name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")
+    command tmux new-session -A -s "$name" "$@"
   fi
 }
-alias tmuxp='tmux_auto_session'
 
 # ─── Terminal Tab Title ──────────────────────────────────────────
 DISABLE_AUTO_TITLE="true"
