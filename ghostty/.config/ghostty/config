@@ -1,8 +1,8 @@
 font-family = JetBrainsMono Nerd Font
 font-size = 13
 
-theme = catppuccin-mocha
-background-opacity = 0.8
+theme = snazzy
+background-opacity = 0.95
 
 keybind = ctrl+shift+v=ignore
 keybind = performable:ctrl+v=paste_from_clipboard
