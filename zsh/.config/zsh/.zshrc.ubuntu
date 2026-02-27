@@ -1,0 +1,29 @@
+# ─── Ubuntu/WSL Specific Configuration ───────────────────────────
+
+# ─── Pure Prompt (via zinit) ────────────────────────────────────
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
+# ─── PATH ───────────────────────────────────────────────────────
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+
+# ─── Tmux Auto Session ─────────────────────────────────────────
+tmuxp() {
+  if [[ -n $TMUX ]]; then
+    command tmux "$@"
+  else
+    local name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")
+    command tmux new-session -A -s "$name" "$@"
+  fi
+}
+
+# ─── NVM ────────────────────────────────────────────────────────
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# ─── Conda ──────────────────────────────────────────────────────
+if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "$HOME/anaconda3/etc/profile.d/conda.sh"
+fi

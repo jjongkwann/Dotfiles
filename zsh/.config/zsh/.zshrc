@@ -76,6 +76,8 @@ case "$OSTYPE" in
     linux*)
         if [ -f /etc/arch-release ]; then
             [[ -f $ZDOTDIR/.zshrc.arch ]] && source $ZDOTDIR/.zshrc.arch
+        elif [ -f /etc/debian_version ]; then
+            [[ -f $ZDOTDIR/.zshrc.ubuntu ]] && source $ZDOTDIR/.zshrc.ubuntu
         fi
         ;;
 esac
