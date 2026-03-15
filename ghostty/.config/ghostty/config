@@ -1,10 +1,30 @@
 font-family = JetBrainsMono Nerd Font
 font-size = 13
 
-theme = snazzy
+# theme = snazzy
+theme = Catppuccin Mocha
+
 background-opacity = 0.95
+background-blur = 10
 
 keybind = ctrl+shift+v=ignore
 keybind = performable:ctrl+v=paste_from_clipboard
 keybind = ctrl+shift+c=ignore
 keybind = performable:ctrl+c=copy_to_clipboard
+
+shell-integration-features = true
+cursor-click-to-move = true
+
+# Kiro AI agent 모드 토글 (공식 추천)
+keybind = ctrl+j=text:\x0a
+
+# 화면 지우기 (⌘+K)
+keybind = macos_option+k=clear_screen
+
+# 탭/분할 화면 전환 (iTerm2 스타일)
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+j=goto_split:bottom
+keybind = cmd+shift+k=goto_split:top
+keybind = cmd+shift+l=goto_split:right
+window-padding-x = 10
+window-padding-y = 10

@@ -1,3 +1,6 @@
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 # ─── Meta & XDG ──────────────────────────────────────────────────
 [[ $- != *i* ]] && return
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -13,14 +16,12 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Turbo mode(wait)를 사용해 터미널 로딩 속도 극대화
-zinit wait'0' lucid for \
+zinit light-mode for \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-syntax-highlighting \
+    zsh-users/zsh-history-substring-search \
     atinit"zicompinit; zicdreplay" \
-        zsh-users/zsh-completions \
-    light-mode \
-        zsh-users/zsh-autosuggestions \
-        zsh-users/zsh-syntax-highlighting \
-        zsh-users/zsh-history-substring-search
+        zsh-users/zsh-completions
 
 # ─── History & Keybinds ──────────────────────────────────────────
 HISTSIZE=5000
@@ -87,12 +88,10 @@ esac
 
 # opencode
 export PATH=/Users/jk/.opencode/bin:$PATH
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# Docker CLI completions (compinit은 Zinit에서 통합 관리)
 fpath=(/Users/jk/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 # python.org Python 3.11
 PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
 
-
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
